@@ -4,11 +4,16 @@ const VideoDetail = ({video}) => {
     if (!video) {
         return <div>loading...</div>
     }
+    const videoSrc = `https://www.youtube.com/embed/${video.id.videoId}`
     return (
-
-        <div className="ui container">
-            <h4>{ video.snippet.title }</h4>
-            <p>{ video.snippet.description }</p>
+        <div>
+            <div className="ui embed">
+                <iframe src={videoSrc} />
+            </div>
+            <div className="ui container">
+                <h4>{ video.snippet.title }</h4>
+                <p>{ video.snippet.description }</p>
+            </div>
         </div>
     );
 }
